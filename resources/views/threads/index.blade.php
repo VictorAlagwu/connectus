@@ -15,28 +15,7 @@
                         </article>
                     @endforeach
                 </div>
-                @if (auth()->check())
-                <div class="text-center" style="padding: 20px 30px 30px 30px;">
-                    <form method="POST" action="/threads">
-                    {{ csrf_field()}}
-                        <div class="form-group">
-                            <label class="form-label">
-                                Title
-                            </label>
-                            <input type="text" name="title" id="title" class="form-control" placeholder="Enter Thread Title..." />
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Thread Body</label>
-                            <textarea class="form-control" name="body" id="body" placeholder="Enter Thread Body..."></textarea>
-                        </div>
-                        <button class="btn btn-default" type="submit" name="submit">Create Thread</button>
-                    </form>
-                </div>
-                @else
-                <div class="text-center" style="padding: 20px 30px 30px 30px;">
-                    Please <a href="/login">Sign-In</a> to create a new thread
-                </div>
-                @endif
+              
             </div>
         </div>
     </div>
