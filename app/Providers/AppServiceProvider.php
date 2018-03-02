@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use App\Channel;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,6 +17,10 @@ class AppServiceProvider extends ServiceProvider
     {
         //
          Schema::defaultStringLength(191);
+         \View::composer('*', function ($view){
+             $view->with('channels', Channel::all());
+         });
+
     }
 
     /**

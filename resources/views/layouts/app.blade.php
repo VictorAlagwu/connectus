@@ -39,9 +39,21 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
+
                     <li><a href="/threads">All Threads</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                        aria-expanded="false">Channels<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            @foreach($channels as $channel)
+                                <li><a href="/threads/{{$channel->slug}}">{{title_case($channel->name)}}</a></li>
+                            @endforeach
+                        </ul>
+                    </li>
+                    <li><a href="/threads/create">New Thread</a></li>
                     </ul>
 
+ 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
@@ -55,6 +67,11 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="threads?by={{Auth::user()->name}}">
+                                           My Threads
+                                        </a>
+                                    </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
