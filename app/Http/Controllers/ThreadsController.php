@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Filter\ThreadFilters;
 use App\User;
 use App\Thread;
-use App\Reply;
 use App\Channel;
 use Illuminate\Http\Request;
 
+/**
+ * Class ThreadsController
+ * @package App\Http\Controllers
+ */
 class ThreadsController extends Controller
 {
 
@@ -17,10 +21,12 @@ class ThreadsController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Channel $channel
+     * @param ThreadFilters $filters
      * @return \Illuminate\Http\Response
      *
      */
-    public function index(Channel $channel)
+    public function index(Channel $channel, ThreadFilters $filters)
     {
         //
         if($channel->exists){
@@ -29,11 +35,7 @@ class ThreadsController extends Controller
             $threads = Thread::latest();
         }
 
-        if($username = request('by')){
-            $user = User::where('name',$username)->firstOrFail();
 
-            $threads->where('user_id',$user->id);
-        }
         $threads = $threads->get();
         return view('threads.index', compact('threads'));
     }
