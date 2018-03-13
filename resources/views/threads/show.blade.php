@@ -34,7 +34,7 @@
                 <div class="panel-body">
                <p>This thread was created at 
                     {{$thread->created_at->diffForHumans()}} by <a href="/users/{{$thread->user_id}}">{{$thread->user->name }} </a>
-                    and has {{ $thread->getReplyCount() }} {{ str_plural('comment',$thread->getReplyCount())}}</p>
+                    and has {{ $thread->replies_count }} {{ str_plural('comment',$thread->replies_count)}}</p>
                 </div>
             </div>
         </div>

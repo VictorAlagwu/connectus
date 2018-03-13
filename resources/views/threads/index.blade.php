@@ -12,7 +12,7 @@
                         <article>
                             <div class="level">
                                  <h4 class="flex"><a href="{{ $thread->path() }}">{{ $thread->title }}</a></h4>
-                                 <strong<a href="{{ $thread->path() }}">No of Replies: {{ $thread->getReplyCount()}}</strong>
+                                 <strong<a href="{{ $thread->path() }}">No of Replies: {{ $thread->replies_count}}</strong>
                             </div>
 
                             <div class="body">{{ $thread->body }}</div>

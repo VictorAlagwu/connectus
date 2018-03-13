@@ -12,7 +12,8 @@
     <title>MyConner</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"> -->
    <style>
     body{padding-bottom: 100px;}
      .level {display:flex; align-items:center;}
@@ -54,6 +55,7 @@
                             @endforeach
                         </ul>
                     </li>
+                     <li><a href="threads?popular=1">Popular Thread</a></li>
                     <li><a href="/threads/create">New Thread</a></li>
                     </ul>
 
@@ -76,6 +78,7 @@
                                            My Threads
                                         </a>
                                     </li>
+                                    
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -99,6 +102,10 @@
     </div>
 
     <!-- Scripts -->
+    <!-- <script src="{{ asset('js/jquery.js') }}"></script> -->
+    <!-- <script src="{{ asset('js/popper.js') }}"></script> -->
+    <!-- <script src="{{ asset('js/bootstrap.min.js') }}"></script> -->
     <script src="{{ asset('js/app.js') }}"></script>
+    
 </body>
 </html>
