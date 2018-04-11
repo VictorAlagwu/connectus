@@ -16,7 +16,9 @@
       </div>
     </div>
   </div>
-                <div class="panel-body" style="background-color: #92FFA4FF">
-                    {{ $reply->body }}
-                </div>
+  @if (Auth::check())
+  <div class="panel-body" style="background-color: #92FFA4FF">
+      {{ $reply->body }}
+  </div>
+  @endif
   </div>

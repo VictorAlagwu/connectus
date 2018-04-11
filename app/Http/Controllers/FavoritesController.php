@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Favorite;
+
 use App\Reply;
 use Illuminate\Http\Request;
 
@@ -22,11 +22,8 @@ class FavoritesController extends Controller
     {
         //
        
-        Favorite::create([
-            'user_id' => auth()->id(),
-            'favorited_id' => $reply->id,
-            'favorited_type' => get_class($reply)
-        ]);
+        
+        $reply->favorite();
         return back();
          
     }
