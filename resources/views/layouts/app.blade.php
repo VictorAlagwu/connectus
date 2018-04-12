@@ -8,17 +8,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-   <!-- {{ config('app.name', 'MyConner') }}  -->
-    <title>MyConner</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"> -->
-   <style>
-    body{padding-bottom: 100px;}
-     .level {display:flex; align-items:center;}
-     .flex{flex:1;}
-   </style>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -36,30 +29,16 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                       {{--  {{ config('app.name', 'MyConner') }} --}}
-                       MyConner
+                        {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-
-                    <li><a href="/threads">All Threads</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                        aria-expanded="false">Channels<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            @foreach($channels as $channel)
-                                <li><a href="/threads/{{$channel->slug}}">{{title_case($channel->name)}}</a></li>
-                            @endforeach
-                        </ul>
-                    </li>
-                     <li><a href="threads?popular=1">Popular Thread</a></li>
-                    <li><a href="/threads/create">New Thread</a></li>
+                        &nbsp;
                     </ul>
 
- 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
@@ -73,12 +52,6 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="threads?by={{Auth::user()->name}}">
-                                           My Threads
-                                        </a>
-                                    </li>
-                                    
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -102,10 +75,6 @@
     </div>
 
     <!-- Scripts -->
-    <!-- <script src="{{ asset('js/jquery.js') }}"></script> -->
-    <!-- <script src="{{ asset('js/popper.js') }}"></script> -->
-    <!-- <script src="{{ asset('js/bootstrap.min.js') }}"></script> -->
     <script src="{{ asset('js/app.js') }}"></script>
-    
 </body>
 </html>
