@@ -73,6 +73,11 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
+                                        <a href="/profiles/{{Auth::user()->name}}">
+                                           View Profile
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="threads?by={{Auth::user()->name}}">
                                            My Threads
                                         </a>

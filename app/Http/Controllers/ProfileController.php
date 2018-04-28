@@ -4,18 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-
-class UserController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(User $user)
+    public function index()
     {
         //
-        return view('users.index', compact('users'));
     }
 
     /**
@@ -49,6 +47,7 @@ class UserController extends Controller
     {
         //
         $user = User::where('name',$user)->first();
+        
         return view('users.show',compact('user'));
     }
 
