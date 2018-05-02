@@ -21,10 +21,23 @@
                     <h3>No Thread Created</h3>
                     @else
                     <h3>Threads Created</h3>
-                    @foreach($user->threads as $thread)
-                    
-                       <a href></ <p>{{$thread->title}}</p>
-                    @endforeach
+                        @foreach($user->threads as $thread) 
+                        <article>
+                                <div class="level">
+                                    <h4 class="flex"><a href="{{$thread->path()}}">{{ $thread->title }}</a></h4>
+                                    
+                                   @auth
+                                    
+                                    <strong><a href="threads/delete/{{$thread->id}}"><button class="btn btn-default">Delete</button></a></strong>
+                                   @else
+                                   {{$thread->created_at->diffForHumans()}}
+                                   @endauth
+                                   
+                                </div>
+                                <div class="body">{{ $thread->body }}</div>
+                        </article>
+                        <br>
+                        @endforeach
                     @endif
                 </div>
             </div>

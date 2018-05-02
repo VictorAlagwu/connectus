@@ -15,8 +15,8 @@
        
          @foreach ($replies as $reply)
                 @include('threads.reply')
-            @endforeach
-            {{ $replies->links() }}
+        @endforeach
+            {{$replies->links()}}
         @if(auth()->check())
            <form method="POST" action="{{ $thread->path().'/replies' }}">
            {{  csrf_field()}}
@@ -33,7 +33,7 @@
              <div class="panel panel-default">
                 <div class="panel-body">
                <p>This thread was created at 
-                    {{$thread->created_at->diffForHumans()}} by <a href="/users/{{$thread->user_id}}">{{$thread->user->name }} </a>
+                    {{$thread->created_at->diffForHumans()}} by <a href="{{route('profile',$thread->user->name)}}">{{$thread->user->name }} </a>
                     and has {{ $thread->replies_count }} {{ str_plural('comment',$thread->replies_count)}}</p>
                 </div>
             </div>

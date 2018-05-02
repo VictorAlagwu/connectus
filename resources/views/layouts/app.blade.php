@@ -73,7 +73,7 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="/profiles/{{Auth::user()->name}}">
+                                        <a href="{{route('profile',Auth::user()->name)}}">
                                            View Profile
                                         </a>
                                     </li>
