@@ -25,7 +25,7 @@
                         <article>
                             <div class="level">
                                 <h4 class="flex"><a href="{{$thread->path()}}">{{ $thread->title }}</a></h4>
-                            @auth
+                            @can('update', $thread)
                                 <form action="{{$thread->path()}}" method="POST">
                                     {{csrf_field()}}
                                     {{method_field('DELETE')}}
@@ -33,7 +33,7 @@
                                 </form>
                             @else
                                 {{$thread->created_at->diffForHumans()}}
-                            @endauth
+                            @endcan
                             </div>
                                 <div class="body">{{ $thread->body }}</div>
                         </article>
