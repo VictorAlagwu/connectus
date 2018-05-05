@@ -7,7 +7,7 @@ class Thread extends Model
 {
     //
     
-
+    use RecordsActivity;
     protected $guarded = [];
 
     protected $with = ['channel'];
@@ -22,6 +22,8 @@ class Thread extends Model
             $builder->with('user');
         });
     }
+
+    
     public function user(){
     	return $this->belongsTo(User::class, 'user_id');
     }
