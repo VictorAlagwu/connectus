@@ -18,7 +18,7 @@
                             <div class="body">{{ $thread->body }}</div>
                         </article>
                     @empty
-                    <p>Sorry, no post in this channel</p>
+                    <p>Sorry, no post in this channel Yea</p>
                     @endforelse
                 </div>
               
