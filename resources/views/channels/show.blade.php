@@ -8,14 +8,14 @@
                 <div class="panel-heading">{{$channel->name}} Threads</div>
 
                 <div class="panel-body">
-                    @forelse ($threads as $thread)
+                    @forelse ($activities as $activity)
                         <article>
                             <div class="level">
-                                 <h4 class="flex"><a href="{{ $thread->path() }}">{{ $thread->title }}</a></h4>
-                                 <strong<a href="{{ $thread->path() }}">No of Replies: {{ $thread->replies_count}}</strong>
+                                 {{-- <h4 class="flex"><a href="{{ $thread->path() }}">{{ $thread->title }}</a></h4> --}}
+                                 {{-- <strong<a href="{{ $thread->path() }}">No of Replies: {{ $thread->replies_count}}</strong> --}}
                             </div>
 
-                            <div class="body">{{ $thread->body }}</div>
+                            {{-- <div class="body">{{ $thread->body }}</div> --}}
                         </article>
                     @empty
                     <p>Sorry, no post in this channel Yea</p>

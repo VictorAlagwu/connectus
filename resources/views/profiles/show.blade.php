@@ -17,29 +17,17 @@
                     Welcome to your profile page {{$profileUser->name}}
                     <p>Your account was created {{$profileUser->created_at->diffForHumans()}}
                     <p>Your Email is {{$profileUser->email}}</p>
-                    @if($threads->count() == 0)
+                    @if($activities->count() == 0)
                     <h3>No Thread Created</h3>
                     @else
-                    <h3>Threads Created By {{$profileUser->name}}</h3>
-                        @foreach($threads as $thread) 
-                        <article>
-                            <div class="level">
-                                <h4 class="flex"><a href="{{$thread->path()}}">{{ $thread->title }}</a></h4>
-                            @can('update', $thread)
-                                <form action="{{$thread->path()}}" method="POST">
-                                    {{csrf_field()}}
-                                    {{method_field('DELETE')}}
-                                    <button class="btn btn-default">Delete Thread</button>
-                                </form>
-                            @else
-                                {{$thread->created_at->diffForHumans()}}
-                            @endcan
-                            </div>
-                                <div class="body">{{ $thread->body }}</div>
-                        </article>
-                        <br>
+                    <h3>Activities of {{$profileUser->name}}</h3>
+                        @foreach($activities as $date => $activity) 
+                            <h3>{{$date}}</h3>
+                            @foreach($activity as $record)
+                                @include("profiles.activities.{$record->type}", ['activity' => $record])
+                            @endforeach
                         @endforeach
-                        {{$threads->links()}}
+                        {{-- {{$activity->links()}} --}}
                     @endif
                 </div>
             </div>

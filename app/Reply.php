@@ -14,7 +14,7 @@ class Reply extends Model
 
    public function thread()
     {
-    	return $this->hasOne(Thread::class);
+    	return $this->belongsTo(Thread::class);
     }
     public function owner()
     {

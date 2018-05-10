@@ -47,10 +47,15 @@ class ProfileController extends Controller
     {
         //
         $user = User::where('name',$user)->first();
+        $activities = $user->activity()->latest()->with('subject')->get()->groupBy(function($activity){
+            return $activity->created_at->format('Y-m-d');
+        });
+
+        
         //return view('users.show',compact('user'));
         return view('profiles.show', [
             'profileUser' => $user,
-            'threads' => $user->threads()->paginate(1)
+            'activities' => $activities
         ]);
 
     }
