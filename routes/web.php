@@ -28,11 +28,12 @@ Route::get('threads/create','ThreadsController@create');
 Route::delete('threads/{channel}/{thread}', 'ThreadsController@destroy');
 Route::get('threads/{channel}/{thread}', 'ThreadsController@show');
 Route::post('threads', 'ThreadsController@store');
-Route::post('/threads/{channel}/{thread}/replies','RepliesController@store');
+s
 
 
 /** Reply Routes */
 Route::post('/replies/{reply}/favorites', 'FavoritesController@store');
+Route::post('/threads/{channel}/{thread}/replies','RepliesController@store');
 Route::get('/replies/{}');
 
 /** Channel Routes */
